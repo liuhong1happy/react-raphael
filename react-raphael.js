@@ -3,12 +3,12 @@ const React,{Component} = require('react');
 const ReactDOM = require('react-dom');
 
 var Utils = {
-    createPaper(container,props){
+    createPaper:function(container,props){
         var { width,height } = props;
         Utils.paper = Raphael(container,width,height);
         return paper;
     },
-    create(type,props){
+    create:function(type,props){
         var element = null;
         switch(type){
             case "set":
@@ -20,7 +20,7 @@ var Utils = {
         }
         return element;
     },
-    createElement(type,props,callback){
+    createElement:function(type,props,callback){
         var element = Utils.create(type,props);
         Utils.elements.push({
             type: type,
@@ -31,7 +31,7 @@ var Utils = {
         if(callback) callback(element);
         return element;
     },
-    createSet(){
+    createSet:function(){
         var set = Utils.createElement("set");
         Utils.elements.push({
             type: "set",
@@ -40,7 +40,7 @@ var Utils = {
         })
         return set;
     },
-    removeSet(set){
+    removeSet:function(set){
         var elements = Utils.elements.filter(function(ele){
             return ele === set;
         })
@@ -48,7 +48,7 @@ var Utils = {
             elements[0].remove();
         }
     },
-    removeElement(element){
+    removeElement:function(element){
         var elements = Utils.elements.filter(function(ele){
             return ele === element;
         })
