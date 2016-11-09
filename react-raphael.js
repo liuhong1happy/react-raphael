@@ -1,11 +1,12 @@
 const Raphael = require('raphael');
-const React,{Component} = require('react');
+const React = require('react');
 const ReactDOM = require('react-dom');
 
 var Utils = {
     createPaper:function(container,props){
         var { width,height } = props;
-        Utils.paper = Raphael(container,width,height);
+        var paper = Raphael(container,width,height);
+        Utils.paper = paper;
         return paper;
     },
     create:function(type,props){
@@ -13,9 +14,10 @@ var Utils = {
         switch(type){
             case "set":
                 element = Utils.paper.set();
+                break;
             case "circle":
                 var {x,y,r} = props;
-                element = Utils.paper.circle(circle);
+                element = Utils.paper.circle(x,y,r);
                 break;
         }
         return element;
@@ -35,8 +37,7 @@ var Utils = {
         var set = Utils.createElement("set");
         Utils.elements.push({
             type: "set",
-            element: set,
-            callback: callback
+            element: set
         })
         return set;
     },
@@ -60,7 +61,7 @@ var Utils = {
     elements: []
 }
 
-class Paper extends Component {
+class Paper extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -96,17 +97,50 @@ class Paper extends Component {
     }
 }
 
-class Set extends Component{
+class Set extends React.Component{
     constructor(props){
         super(props);
+        this.elements = [];
         this.state = {
             loading: false
+        }
+    }
+    componentWillMount(){
+        this.onCreatedElement = this.onCreatedElement.bind(this);
+        this.elements = [];
+        var children = this.props.children || [];
+        var isArray = children instanceof Array;
+        if(!isArray) children = [children];
+        for(var i=0;i<children.length;i++){
+            var element = children[i];
+            // element.props.onCreatedElement = this.onCreatedElement;
+            var props = {};
+            for(var key in element.props){
+                props[key] = element.props[key];
+            }
+            props.onCreatedElement = this.onCreatedElement;
+            this.elements.push(React.createElement(element.type,props,null));
+        }
+    }
+    componentWillUpdate(){
+        this.elements = [];
+        var children = this.props.children || [];
+        var isArray = children instanceof Array;
+        if(!isArray) children = [children];
+        for(var i=0;i<children.length;i++){
+            var element = children[i];
+            // element.props.onCreatedElement = this.onCreatedElement;
+            var props = {};
+            for(var key in element.props){
+                props[key] = element.props[key];
+            }
+            props.onCreatedElement = this.onCreatedElement;
+            this.elements.push(React.createElement(element.type,props,null));
         }
     }
     componentDidMount(){
         var set = Utils.createSet();
         this.set = set;
-        this.onCreatedElement = this.onCreatedElement.bind(this);
         this.setState({
             loading: true
         })
@@ -119,21 +153,14 @@ class Set extends Component{
     }
     render(){
         if(this.state.loading){
-            var children = this.props.children || [];
-            var isArray = children instanceof Array;
-		    if(!isArray) children = [children];
-            for(var i=0;i<children.length;i++){
-                var element = children[i];
-                element.props.onCreatedElement = this.onCreatedElement;
-            }
-            return (<div className="raphael-set">{children}</div>)
+            return (<div className="raphael-set">{this.elements}</div>)
         }else{
             return (<div className="raphael-set"></div>)
         }
     }
 }
 
-class Circle extends Component {
+class Circle extends React.Component {
     componentDidMount(){
         var element = Utils.createElement("circle",this.props,this.props.onCreatedElement);
         this.element = element;
