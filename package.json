@@ -1,0 +1,24 @@
+{
+  "name": "react-raphael",
+  "version": "0.0.1-rc1",
+  "description": "reactify raphael",
+  "main": "react-raphael.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuhong1happy/react-raphael.git"
+  },
+  "keywords": [
+    "react",
+    "raphael",
+    "react-raphael"
+  ],
+  "author": "Holly Liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liuhong1happy/react-raphael/issues"
+  },
+  "homepage": "https://github.com/liuhong1happy/react-raphael#readme"
+}
