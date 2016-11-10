@@ -45,6 +45,10 @@ class App extends React.Component{
 }
 ```
 
+## Snapshot
+
+![snapshot.png](snapshot.png)
+
 ## API
 
 #### All Element Props
