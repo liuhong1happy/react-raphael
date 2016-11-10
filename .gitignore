@@ -1,3 +1,2 @@
 node_modules/
-vendor.js
-vendor.js.map
+.DS_Store

@@ -9,6 +9,10 @@ reactify raphael
 
 	npm install --save react-raphael
 
+## Example
+
+- [react-raphael-example](https://github.com/liuhong1happy/react-raphael-example)
+
 ## Quickly Start
 
 ```js
