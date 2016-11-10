@@ -1,5 +1,8 @@
 # react-raphael
 
+[![Version](https://img.shields.io/npm/v/react-raphael.svg)](https://www.npmjs.com/package/react-raphael)
+[![Downloads](https://img.shields.io/npm/dt/react-raphael.svg)](https://www.npmjs.com/package/react-raphael)
+
 reactify raphael
 
 ## Install
