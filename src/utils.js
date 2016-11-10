@@ -8,7 +8,6 @@ var Utils = {
     },
     create:function(type,props){
         var element = null;
-		var {attr,animate,animateWith,click,dblclick,drag,glow,hover,hide} =  props;
         switch(type){
             case "set":
                 element = Utils.paper.set();

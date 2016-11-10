@@ -5,12 +5,7 @@
   "main": "react-raphael.js",
   "scripts": {
     "test": "test",
-	"build": "webpack --devtool cheap-module-source-map --progress --color --profile --config webpack.pro.config.js --watch"
-  },
-  "pearDependencies":{
-    "raphael": "^2.2.6",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+	"build": "webpack -p --config webpack.pro.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
