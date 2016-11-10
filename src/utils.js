@@ -1,3 +1,4 @@
+const Raphael = require('raphael');
 var Utils = {
     createPaper:function(container,props){
         var { width,height } = props;

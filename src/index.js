@@ -1,3 +1,4 @@
+const Raphael = require('raphael');
 const {
 	Paper,
     Set,

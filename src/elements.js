@@ -1,3 +1,5 @@
+const React = require('react');
+const ReactDOM = require('react-dom');
 const Utils = require('./utils');
 
 class Paper extends React.Component {
