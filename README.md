@@ -18,7 +18,7 @@ reactify raphael
 ```js
 window.React = require('react');
 window.ReactDOM = require('react-dom');
-wubdiw.Raphael = require('raphael');
+window.Raphael = require('raphael');
 const {Paper,Set,Circle,Ellipse,Image,Rect,Text,Path} = require('react-raphael');
 
 class App extends React.Component{
