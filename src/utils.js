@@ -58,10 +58,10 @@ var Utils = {
 						if(typeof props[key] ==="function") element.drag(props.drag);
 						break;
 					case "glow": 
-						if(typeof props[key] ==="object") element.click(props.click);
+						if(typeof props[key] ==="object") element.glow(props.glow);
 						break;
 					case "hover": 
-						if(typeof props[key] ==="function") element.dblclick(props.dblclick);
+						if(typeof props[key] ==="function") element.hover(props.hover);
 						break;
 					case "hide": 
 						if(typeof props[key] ==="boolean") props.hide?element.hide():element.show();
