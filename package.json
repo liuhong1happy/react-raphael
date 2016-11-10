@@ -1,6 +1,6 @@
 {
   "name": "react-raphael",
-  "version": "0.2.0-rc5",
+  "version": "0.2.0",
   "description": "reactify raphael",
   "main": "react-raphael.js",
   "scripts": {

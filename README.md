@@ -12,8 +12,9 @@ reactify raphael
 ## Quickly Start
 
 ```js
-const React = require('react');
-const ReactDOM = require('react-dom');
+window.React = require('react');
+window.ReactDOM = require('react-dom');
+wubdiw.Raphael = require('raphael');
 const {Paper,Set,Circle,Ellipse,Image,Rect,Text,Path} = require('react-raphael');
 
 class App extends React.Component{
