@@ -1,17 +1,21 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var APP_PATH = path.resolve(__dirname,'./src/main.js');
+var APP_PATH = path.resolve(__dirname,'./src/index.js');
 var BUILD_PATH = path.resolve(__dirname, './');
 
 module.exports = {
-  entry: {
-    "react-raphael": APP_PATH,
-	"vendor": ['react','react-dom','raphael']
-  },
+  entry:  APP_PATH,
   output: {
     path: BUILD_PATH,
-    filename: '[name].js' //输出js
+    filename: 'react-raphael.js', //输出js
+	libraryTarget: "umd",
+	library: "react-raphael"
+  },
+  externals: {
+	"react": "React",
+	"react-dom": "ReactDOM",
+	"raphael": "Raphael"
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -19,7 +23,6 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({name:'vendor', filename: 'vendor.js'}),
     new webpack.optimize.UglifyJsPlugin({ 
         minimize: true,
         compress:{
