@@ -58,7 +58,7 @@ var Utils = {
 						if(typeof props[key] ==="function") element.drag(props.drag);
 						break;
 					case "glow": 
-						if(typeof props[key] ==="function") element.click(props.click);
+						if(typeof props[key] ==="object") element.click(props.click);
 						break;
 					case "hover": 
 						if(typeof props[key] ==="function") element.dblclick(props.dblclick);

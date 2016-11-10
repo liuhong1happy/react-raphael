@@ -19,26 +19,33 @@ reactify raphael
 window.React = require('react');
 window.ReactDOM = require('react-dom');
 window.Raphael = require('raphael');
-const {Paper,Set,Circle,Ellipse,Image,Rect,Text,Path} = require('react-raphael');
+
+const {Raphael,Paper,Set,Circle,Ellipse,Image,Rect,Text,Path} = require('react-raphael');
 
 class App extends React.Component{
     render(){
-        var data = [{x:50,y:50,r:40},{x:100,y:100,r:40},{x:200,y:100,r:40},{x:150,y:50,r:40},{x:250,y:50,r:40}]
+        var data = [
+            {x:50,y:50,r:40,attr:{"stroke":"#0b8ac9","stroke-width":5},animate:Raphael.animation({cx:60},500,"<>")},
+            {x:100,y:100,r:40,attr:{"stroke":"#f0c620","stroke-width":5},animate:Raphael.animation({cx:105},500,"<>")},
+            {x:150,y:50,r:40,attr:{"stroke":"#1a1a1a","stroke-width":5}},
+            {x:200,y:100,r:40,attr:{"stroke":"#10a54a","stroke-width":5},animate:Raphael.animation({cx:195},500,"<>")},
+            {x:250,y:50,r:40,attr:{"stroke":"#e11032","stroke-width":5},animate:Raphael.animation({cx:240},500,"<>")}
+        ]
         return (<Paper width={300} height={300}>
                        <Set>    
                         {
                             data.map(function(ele,pos){
-                                return (<Circle key={pos} x={ele.x} y={ele.y} r={ele.r} />)
+                                return (<Circle key={pos} x={ele.x} y={ele.y} r={ele.r} attr={ele.attr} animate={ele.animate}/>)
                             })
                         }
                         </Set>
 						<Set>
-							<Image src="/static/images/5circle.png" x={100} y={170} width={90} height={60} />
-							<Ellipse x={150} y={200} ry={30} rx={100} />
-							<Rect x={30} y={150} width={240} height={150} />
-							<Text x={150} y={250} text="同一个世界 同一个梦想" />
-							<Text x={150} y={270} text="One World One Dream" />
-							<Path d={["M80 290L220 290"]} />
+                            <Rect x={30} y={148} width={240} height={150} attr={{"fill":"#10a54a","stroke":"#f0c620","stroke-width":5}}/>
+							<Ellipse x={150} y={200} ry={40} rx={100} attr={{"fill":"#fff","stroke":"#e11032"}} glow={{width:100,fill:true,color:"#e11032",opacity:1}}/>
+                            <Image src="/static/images/5circle.png" x={100} y={170} width={90} height={60} />
+							<Text x={150} y={250} text="同一个世界 同一个梦想" attr={{"fill":"#fff"}}/>
+							<Text x={150} y={270} text="One World One Dream" attr={{"fill":"#fff"}}/>
+							<Path d={["M80 290L220 290"]} attr={{"stroke":"#fff"}}/>
 						</Set>
                 </Paper>)
     }
