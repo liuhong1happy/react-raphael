@@ -9,7 +9,7 @@ const {
 	Text
 } = require('./elements');
 
-exports.Raphael = require('raphael');
+exports.Raphael = Raphael;
 exports.Utils = require('./utils');
 exports.Paper = Paper;
 exports.Set = Set;
