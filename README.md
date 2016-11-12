@@ -17,9 +17,8 @@ reactify raphael
 ## Quickly Start
 
 ```js
-window.React = require('react');
-window.ReactDOM = require('react-dom');
-window.Raphael = require('raphael');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 const {Raphael,Paper,Set,Circle,Ellipse,Image,Rect,Text,Path} = require('react-raphael');
 
