@@ -3,7 +3,7 @@ var Utils = {
     createPaper:function(container,props){
         var { width,height } = props;
         var paper = Raphael(container,width,height);
-        paper.id = container.id || ("paper-" + new Date().valueOf() +"-"+ Math.round().toFixed("10"))
+        paper.id = container.id || ("paper-" + new Date().valueOf() +"-"+ Math.random().toFixed(10))
         Utils.papers.push(paper);
         return paper;
     },
@@ -18,7 +18,7 @@ var Utils = {
             }
         }else{
             var sets = Utils.elements.filter(function(ele,pos){
-                return ele.id == id;
+                return ele.element.id == id;
             })
             if(sets.length>0){
                 return {
@@ -35,9 +35,11 @@ var Utils = {
     create:function(parentId,type,props){
         var element = null;
         var findedParent = Utils.findParentById(parentId);
+        if(!findedParent.paper) return findedParent.paper;
         switch(type){
             case "set":
                 element = findedParent.paper.set();
+                element.id = "set-" + new Date().valueOf() +"-"+ Math.random().toFixed(10)
                 break;
             case "circle":
                 var {x,y,r} = props;
@@ -66,7 +68,7 @@ var Utils = {
         }
        
 		if(element){
-             if(findedParent.parent.type=="set") findedParent.parent.push(element);
+            if(findedParent.parent.type=="set") findedParent.parent.push(element);
 			for(var key in props){
 				switch(key){
 					case "attr": 
