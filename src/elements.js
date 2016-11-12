@@ -55,6 +55,9 @@ class Set extends React.Component{
             loading: true
         })
     }
+    componentDidUpdate(){
+        console.log(this.props.children);
+    }
     componentWillUnmout(){
         Utils.removeSet(this.set);
     }
@@ -85,9 +88,6 @@ class Element extends React.Component{
         Utils.removeElement(this.element);
     }
     handleLoad(element){
-        if(this.props.onCreatedElement){
-            this.props.onCreatedElement(element);
-        }
         if(this.props.load){
             this.props.load(element);
         }

@@ -124,7 +124,7 @@ var Utils = {
         if(callback) callback(element);
         return element;
     },
-    createSet:function(props){
+    createSet:function(props,callback){
         var set = Utils.create("set",props);
         Utils.elements.push({
             type: "set",
