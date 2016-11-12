@@ -77,7 +77,7 @@ class Set extends React.Component{
         if(this.state.loading){
             return (<div ref="root" className="raphael-set" data-id={this.state.id}>{this.props.children}</div>)
         }else{
-            return (<div className="raphael-set"></div>)
+            return (<div ref="root" className="raphael-set"></div>)
         }
     }
 }
