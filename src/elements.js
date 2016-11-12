@@ -68,21 +68,21 @@ class Set extends React.Component{
         }
     }
     componentWillUpdate(){
-        this.elements = [];
-        var children = this.props.children || [];
-        var isArray = children instanceof Array;
-        if(!isArray) children = [children];
-        for(var i=0;i<children.length;i++){
-            var element = children[i];
-            // element.props.onCreatedElement = this.onCreatedElement;
-            var props = {};
-            for(var key in element.props){
-                props[key] = element.props[key];
-            }
-            props.onCreatedElement = this.onCreatedElement;
-			props.key = i;
-            this.elements.push(React.createElement(element.type,props,null));
-        }
+//        this.elements = [];
+//        var children = this.props.children || [];
+//        var isArray = children instanceof Array;
+//        if(!isArray) children = [children];
+//        for(var i=0;i<children.length;i++){
+//            var element = children[i];
+//            // element.props.onCreatedElement = this.onCreatedElement;
+//            var props = {};
+//            for(var key in element.props){
+//                props[key] = element.props[key];
+//            }
+//            props.onCreatedElement = this.onCreatedElement;
+//			props.key = i;
+//            this.elements.push(React.createElement(element.type,props,null));
+//        }
     }
     componentDidMount(){
         var set = Utils.createSet(this.props);
