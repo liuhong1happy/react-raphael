@@ -12,6 +12,7 @@ reactify raphael
 ## Example
 
 - [react-raphael-example](https://github.com/liuhong1happy/react-raphael-example)
+- [react-raphael-map](https://github.com/liuhong1happy/react-raphael-map)
 
 ## Quickly Start
 
@@ -127,23 +128,28 @@ class App extends React.Component{
 
 #### Raphael & Utils
 
-- Raphael `you can see [http://dmitrybaranovskiy.github.io/raphael/reference.html#Raphael](http://dmitrybaranovskiy.github.io/raphael/reference.html#Raphael)`
+- Raphael `you can see ` [http://dmitrybaranovskiy.github.io/raphael/reference.html#Raphael](http://dmitrybaranovskiy.github.io/raphael/reference.html#Raphael)
 - Utils
 	- createPaper `function` create a paper by `Raphael()`
+    - updatePaper `function` update a paper
+    - removePaper `function` remove a paper
 	- create `function` create elements or a set by `paper.xxx`
 	- createElement `function` call create to create a element
 	- createSet `function` call create to create a set
+    - updateElement `function` update elements or a set 
 	- removeSet `function` remove a set from paper 
 	- removeElement `function` remove a element from paper 
-	- paper `object` or `null` the only paper instance
+	- papers `array` all paper instance
 	- elements `array` all elements or set of the only paper instance
-	
+    - findParentById `function` find parent of element by id
+
 #### Todo
 
 - [ ] Animation
 - [ ] Element Ref Function
 - [ ] call `Unxxx` Event in `removeElement` & `removeSet`
 - [ ] remove unsafe call style
+- [ ] default props
 - [ ] etc.
 	
 # Contact
