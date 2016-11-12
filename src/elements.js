@@ -84,6 +84,9 @@ class Element extends React.Component{
         var element = Utils.createElement(this.props.type,this.props,this.handleLoad);
         this.element = element;
     }
+    componentDidUpdate(){
+        Utils.updateElement(this.element,this.props.type,this.props);
+    }
     componentWillUnmount(){
         Utils.removeElement(this.element);
     }
