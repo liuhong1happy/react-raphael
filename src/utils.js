@@ -130,6 +130,7 @@ var Utils = {
             type: "set",
             element: set
         })
+        if(callback) callback(set);
         return set;
     },
     removeSet:function(set){
