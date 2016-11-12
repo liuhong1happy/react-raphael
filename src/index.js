@@ -14,6 +14,7 @@ exports.Raphael = Raphael;
 exports.Utils = require('./utils');
 exports.Paper = Paper;
 exports.Set = Set;
+exports.Element = Element;
 exports.Circle = Circle;
 exports.Ellipse = Ellipse;
 exports.Image = Image;

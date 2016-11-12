@@ -14,7 +14,8 @@ class Paper extends React.Component {
         var paper = Utils.createPaper(container,this.props);
         this.paper = paper;
         this.setState({
-            loading: true
+            loading: true,
+            id: paper.id
         })
     }
     componentWillUnmount(){
@@ -22,11 +23,11 @@ class Paper extends React.Component {
     }
     genElementsContainer(){
         if(this.state.loading){
-            return (<div className="elements-container">
+            return (<div className="raphael-paper" data-id={this.state.id}>
                         {this.props.children}
                     </div>)
         }else{
-            return (<div className="elements-container"></div>)
+            return (<div className="raphael-paper"></div>)
         }
     }
 	getPaper(){
@@ -49,10 +50,13 @@ class Set extends React.Component{
         }
     }
     componentDidMount(){
-        var set = Utils.createSet(this.props,this.handleLoad.bind(this));
+        var root = ReactDOM.findDOMNode(this.refs.root);
+        var parentId = root.parentElement.getAttribute("data-id");
+        var set = Utils.createSet(parentId,this.props,this.handleLoad.bind(this));
         this.set = set;
         this.setState({
-            loading: true
+            loading: true,
+            id: set.id
         })
     }
     componentDidUpdate(){
@@ -71,7 +75,7 @@ class Set extends React.Component{
 	}
     render(){
         if(this.state.loading){
-            return (<div className="raphael-set">{this.props.children}</div>)
+            return (<div className="raphael-set" data-id={this.state.id}>{this.props.children}</div>)
         }else{
             return (<div className="raphael-set"></div>)
         }
@@ -81,8 +85,11 @@ class Set extends React.Component{
 class Element extends React.Component{
     componentDidMount(){
         this.handleLoad = this.handleLoad.bind(this);
-        var element = Utils.createElement(this.props.type,this.props,this.handleLoad);
+        var root = ReactDOM.findDOMNode(this.refs.root);
+        var parentId = root.parentElement.getAttribute("data-id");
+        var element = Utils.createElement(parentId,this.props.type,this.props,this.handleLoad);
         this.element = element;
+        
     }
     componentDidUpdate(){
         Utils.updateElement(this.element,this.props.type,this.props);
@@ -96,7 +103,7 @@ class Element extends React.Component{
         }
     }
     render(){
-        return (<div className={"raphael-"+this.props.type}></div>)
+        return (<div ref="root" className={"raphael-"+this.props.type}></div>)
     }               
 } 
 
