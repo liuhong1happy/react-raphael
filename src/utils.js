@@ -151,11 +151,11 @@ var Utils = {
                 break;
             case "rect":
                 var {x, y, width, height, r} = props;
-                element.attr(x, y, width, height, r);
+                element.attr({x, y, width, height, r});
                 break;
             case "text":
                 var {x, y, text} = props;
-                element.attr(x, y, text);
+                element.attr({x, y, text});
                 break;
         }
 		if(element){
