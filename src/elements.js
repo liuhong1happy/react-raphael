@@ -109,7 +109,7 @@ class Set extends React.Component{
     }
 }
 
-class Eelement extends React.Component{
+class Element extends React.Component{
     componentDidMount(){
         this.handleLoad = this.handleLoad.bind(this);
         var element = Utils.createElement(this.props.type,this.props,this.handleLoad);
@@ -141,7 +141,7 @@ const Text = (props)=> <Element type="text" {...props} />;
 module.exports = {
     Paper: Paper,
     Set: Set,
-    Eelement: Eelement,
+    Element: Element,
     Circle: Circle,
 	Ellipse: Ellipse,
 	Image: Image,
