@@ -21,9 +21,10 @@ var Utils = {
                 return ele.element.id == id;
             })
             if(sets.length>0){
+                if(!sets[0].element) return sets[0].element;
                 return {
-                    parent: sets[0],
-                    paper: sets[0].paper
+                    parent: sets[0].element,
+                    paper: sets[0].element.paper
                 }
             }
         }
