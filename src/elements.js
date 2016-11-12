@@ -109,107 +109,43 @@ class Set extends React.Component{
     }
 }
 
-class Circle extends React.Component {
+class Eelement extends React.Component{
     componentDidMount(){
-        var element = Utils.createElement("circle",this.props,this.props.onCreatedElement);
+        this.handleLoad = this.handleLoad.bind(this);
+        var element = Utils.createElement(this.props.type,this.props,this.handleLoad);
         this.element = element;
     }
     componentWillUnmount(){
         Utils.removeElement(this.element);
     }
+    handleLoad(element){
+        if(this.props.onCreatedElement){
+            this.props.onCreatedElement(element);
+        }
+        if(this.props.load){
+            this.props.load(element);
+        }
+    }
     render(){
-        return (<div className="raphael-circle"></div>)
-    }    
-}
+        return (<div className={"raphael-"+this.props.type}></div>)
+    }               
+} 
 
-class Ellipse extends React.Component {
-    componentDidMount(){
-        var element = Utils.createElement("ellipse",this.props,this.props.onCreatedElement);
-        this.element = element;
-    }
-    componentWillUnmount(){
-        Utils.removeElement(this.element);
-    }
-	getElement(){
-		return this.element;
-	}
-    render(){
-        return (<div className="raphael-ellipse"></div>)
-    }    
-}	
+const Circle = (props)=> <Element type="circle" {...props} />;
+const Ellipse = (props)=> <Element type="ellipse" {...props} />;
+const Image = (props)=> <Element type="image" {...props} />;
+const Path = (props)=> <Element type="path" {...props} />;
+const Rect = (props)=> <Element type="rect" {...props} />;
+const Text = (props)=> <Element type="text" {...props} />;
 
-class Image extends React.Component {
-    componentDidMount(){
-        var element = Utils.createElement("image",this.props,this.props.onCreatedElement);
-        this.element = element;
-    }
-    componentWillUnmount(){
-        Utils.removeElement(this.element);
-    }
-	getElement(){
-		return this.element;
-	}
-    render(){
-        return (<div className="raphael-image"></div>)
-    }    
-}
-
-class Path extends React.Component {
-    componentDidMount(){
-        var element = Utils.createElement("path",this.props,this.props.onCreatedElement);
-        this.element = element;
-    }
-    componentWillUnmount(){
-        Utils.removeElement(this.element);
-    }
-	getElement(){
-		return this.element;
-	}
-    render(){
-        return (<div className="raphael-path"></div>)
-    }    
-}
-	
-class Rect extends React.Component {
-    componentDidMount(){
-        var element = Utils.createElement("rect",this.props,this.props.onCreatedElement);
-        this.element = element;
-    }
-    componentWillUnmount(){
-        Utils.removeElement(this.element);
-    }
-	getElement(){
-		return this.element;
-	}
-    render(){
-        return (<div className="raphael-rect"></div>)
-    }    
-}
-
-class Text extends React.Component {
-    componentDidMount(){
-        var element = Utils.createElement("text",this.props,this.props.onCreatedElement);
-        this.element = element;
-    }
-    componentWillUnmount(){
-        Utils.removeElement(this.element);
-    }
-	getElement(){
-		return this.element;
-	}
-    render(){
-        return (<div className="raphael-text"></div>)
-    }    
-}
-
-				
 module.exports = {
     Paper: Paper,
     Set: Set,
+    Eelement: Eelement,
     Circle: Circle,
 	Ellipse: Ellipse,
 	Image: Image,
 	Path: Path,
 	Rect: Rect,
-	Text: Text,	
+	Text: Text
 }

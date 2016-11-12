@@ -78,6 +78,7 @@ class App extends React.Component{
 	- mouseout `function` Adds event handler for mouseout for the element.
 	- mouseover `function` Adds event handler for mouseover for the element.
 	- mouseup `function` Adds event handler for mouseup for the element.
+    - load `function` Adds event handler for load for the element.
 	- rotate `object` Adds rotation by given angle around given point to the list of transformations of the element.
 	- scale `object` Adds scale by given amount relative to given point to the list of transformations of the element.
 	- touchcancel `function` Adds event handler for touchcancel for the element.
