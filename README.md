@@ -105,6 +105,17 @@ class App extends React.Component{
 	- height `number` height of the image
 - Path `Extends Element & Creates a path element by given path data string`
     - d `string` path string in SVG format
+- Print `Extends Element & Creates set of shapes to represent given font at given position with given size`
+    - x `number` x position of the text
+    - y `number` y position of the text
+    - text `string` text to print
+    - font-family `string` family of font object
+    - font-weight `string` weight of font object
+    - font-style `string` style of font object
+    - font-stretch `string` stretch of font object
+    - font-size `number` size of the font, default is 16
+    - origin `string` could be "baseline" or "middle", default is "middle"
+    - letter-spacing `number` number in range -1..1, default is 0
 - Rect `Extends Element & Draws a circle`
     - x `number` x coordinate of the top left corner
     - y `number` y coordinate of the top left corner
@@ -141,15 +152,6 @@ class App extends React.Component{
 	- papers `array` all paper instance
 	- elements `array` all elements or set of the only paper instance
     - findParentById `function` find parent of element by id
-
-#### Todo
-
-- [ ] Animation
-- [ ] Element Ref Function
-- [ ] call `Unxxx` Event in `removeElement` & `removeSet`
-- [ ] remove unsafe call style
-- [ ] default props
-- [ ] etc.
 	
 # Contact
 

@@ -108,12 +108,33 @@ class Element extends React.Component{
 } 
 
 const Circle = (props)=> <Element type="circle" {...props} />;
+Circle.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, r: React.PropTypes.number };
+Circle.defaultProps = { x: 0, y: 0,r: 10 };
+        
 const Ellipse = (props)=> <Element type="ellipse" {...props} />;
+Ellipse.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, rx: React.PropTypes.number, ry: React.PropTypes.number };
+Ellipse.defaultProps = { x: 0, y: 0,rx: 10,ry: 20 };
+        
 const Image = (props)=> <Element type="image" {...props} />;
+Image.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, src: React.PropTypes.string, width: React.PropTypes.number, height: React.PropTypes.number };
+Image.defaultProps = { x: 0, y: 0, src: "", width: 0,height: 0 };
+        
 const Path = (props)=> <Element type="path" {...props} />;
+Path.propTypes = { d: React.PropTypes.string };
+Path.defaultProps = { d: "" };
+        
 const Rect = (props)=> <Element type="rect" {...props} />;
+Rect.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, width: React.PropTypes.number, height: React.PropTypes.number };
+Rect.defaultProps = { x: 0, y: 0, width: 0,height: 0 };
+        
+const Print = (props)=> <Element type="print" {...props} />;
+Print.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string, fontFamily: React.PropTypes.string };
+Print.defaultProps = { x: 0, y: 0, text: "", fontFamily: "Arial" };
+        
 const Text = (props)=> <Element type="text" {...props} />;
-
+Text.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string };
+Text.defaultProps = { x: 0, y: 0, text: "" };
+        
 module.exports = {
     Paper: Paper,
     Set: Set,
@@ -122,6 +143,7 @@ module.exports = {
 	Ellipse: Ellipse,
 	Image: Image,
 	Path: Path,
+    Print: Print,
 	Rect: Rect,
 	Text: Text
 }

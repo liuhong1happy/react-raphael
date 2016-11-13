@@ -58,6 +58,11 @@ var Utils = {
                 var {d} = props;
                 element = findedParent.paper.path(d);
                 break;
+            case "print":
+                var {x,y,text,fontFamily,fontWeight,fontStyle,fontStretch,fontSize,letterSpacing} = props;
+                var font = findedParent.paper.getFont(fontFamily,fontWeight,fontStyle,fontStretch);
+                element = findedParent.paper.print(x, y, text,font,fontSize,letterSpacing);
+                break;
             case "rect":
                 var {x, y, width, height, r} = props;
                 element = findedParent.paper.rect(x, y, width, height, r);
@@ -66,6 +71,7 @@ var Utils = {
                 var {x, y, text} = props;
                 element = findedParent.paper.text(x, y, text);
                 break;
+
         }
        
 		if(element){
@@ -184,6 +190,10 @@ var Utils = {
             case "path":
                 var {d} = props;
                 element.attr({path:d});
+                break;
+            case "print":
+                var {x,y,text,fontFamily,fontWeight,fontStyle,fontStretch,fontSize,letterSpacing} = props;
+                element.attr({x,y,text,"font-family":fontFamily,"font-size":fontSize});
                 break;
             case "rect":
                 var {x, y, width, height, r} = props;

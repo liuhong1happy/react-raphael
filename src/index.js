@@ -6,6 +6,7 @@ const {
 	Ellipse,
 	Image,
 	Path,
+    Print,
 	Rect,
 	Text
 } = require('./elements');
@@ -19,5 +20,6 @@ exports.Circle = Circle;
 exports.Ellipse = Ellipse;
 exports.Image = Image;
 exports.Path = Path;
+exports.Print = Print;
 exports.Rect = Rect;
 exports.Text = Text;
