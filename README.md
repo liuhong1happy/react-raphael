@@ -13,6 +13,7 @@ reactify raphael
 
 - [react-raphael-example](https://github.com/liuhong1happy/react-raphael-example)
 - [react-raphael-map](https://github.com/liuhong1happy/react-raphael-map)
+- [react-raphael-chart](https://github.com/liuhong1happy/react-raphael-chart)
 
 ## Quickly Start
 
@@ -20,7 +21,7 @@ reactify raphael
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-const {Raphael,Paper,Set,Circle,Ellipse,Image,Rect,Text,Path} = require('react-raphael');
+const {Raphael,Paper,Set,Circle,Ellipse,Image,Rect,Text,Path,Line} = require('react-raphael');
 
 class App extends React.Component{
     render(){
@@ -41,11 +42,12 @@ class App extends React.Component{
                         </Set>
 						<Set>
                             <Rect x={30} y={148} width={240} height={150} attr={{"fill":"#10a54a","stroke":"#f0c620","stroke-width":5}}/>
-							<Ellipse x={150} y={200} ry={40} rx={100} attr={{"fill":"#fff","stroke":"#e11032"}} glow={{width:100,fill:true,color:"#e11032",opacity:1}}/>
-                            <Image src="/static/images/5circle.png" x={100} y={170} width={90} height={60} />
-							<Text x={150} y={250} text="同一个世界 同一个梦想" attr={{"fill":"#fff"}}/>
-							<Text x={150} y={270} text="One World One Dream" attr={{"fill":"#fff"}}/>
-							<Path d={["M80 290L220 290"]} attr={{"stroke":"#fff"}}/>
+							<Ellipse x={150} y={198} ry={40} rx={100} attr={{"fill":"#fff","stroke":"#e11032"}} glow={{width:10,fill:true,color:"#0b8ac9",opacity:1}}/>
+                            <Image src="static/images/5circle.png" x={100} y={170} width={90} height={60} />
+							<Text x={150} y={258} text="同一个世界 同一个梦想" attr={{"fill":"#fff"}}/>
+							<Text x={150} y={273} text="One World One Dream" attr={{"fill":"#fff"}}/>
+							<Path d={["M150 287L150 287"]} animate={Raphael.animation({"path": ["M80 287L220 287"]},500,"<>")} attr={{"stroke":"#fff"}}/>
+                            <Line x1={150} y1={290} x2={150} y2={290} animate={Raphael.animation({ x1:80, x2:220},500,"<>")} attr={{"stroke":"#fff"}}/>
 						</Set>
                 </Paper>)
     }
