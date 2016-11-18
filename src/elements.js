@@ -136,11 +136,21 @@ class Line extends React.Component{
 	render(){
 		var {x1,x2,y1,y2,animate,attr,...others} = this.props;
         if(animate){
-            animate.x1 = animate.x1 || x1;
-            animate.x2 = animate.x2 || x2;
-            animate.y1 = animate.y1 || y1;
-            animate.y2 = animate.y2 || y2;
-            animate.path = [ "M",animate.x1,animate.y1, "L",animate.x2,animate.y2 ];
+            if(animate.anim){
+                for(var key in animate.anim) { 
+                    animate.anim[key].x1 = animate.anim[key].x1 || x1;
+                    animate.anim[key].x2 = animate.anim[key].x2 || x2;
+                    animate.anim[key].y1 = animate.anim[key].y1 || y1;
+                    animate.anim[key].y2 = animate.anim[key].y2 || y2;
+                    animate.anim[key].path = [ "M",animate.anim[key].x1,animate.anim[key].y1, "L",animate.anim[key].x2,animate.anim[key].y2 ];
+                 }
+            }else{
+                animate.x1 = animate.x1 || x1;
+                animate.x2 = animate.x2 || x2;
+                animate.y1 = animate.y1 || y1;
+                animate.y2 = animate.y2 || y2;
+                animate.path = [ "M",animate.x1,animate.y1, "L",animate.x2,animate.y2 ];
+            }
         }
         if(attr){
             attr.x1 = attr.x1 || x1;
