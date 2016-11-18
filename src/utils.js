@@ -120,13 +120,13 @@ var Utils = {
 						if(typeof props[key] ==="function") element.mouseover(props.mouseover);
 						break;
 					case "mouseup": 
-						if(typeof props[key] ==="function") props.mouseup(element.mouseup);
+						if(typeof props[key] ==="function") element.mouseup(props.mouseup);
 						break;
 					case "rotate": 
-						if(typeof props[key] ==="rotate") element.rotate(props.attr);
+						if(typeof props[key] ==="object") { var {deg, cx, cy} = props.rotate; element.rotate(deg, cx, cy); }
 						break;
-					case "scale": 
-						if(typeof props[key] ==="scale") element.scale(props.animate);
+					case "scale":
+						if(typeof props[key] ==="object") { var {sx,sy,cx,cy} = props.scale; element.scale(sx,sy,cx,cy); }
 						break;
 					case "toBack":
 						if(typeof props[key] ==="boolean") if(props.toBack) element.toBack();
@@ -141,16 +141,16 @@ var Utils = {
 						if(typeof props[key] ==="function") element.touchend(props.touchend);
 						break;
 					case "touchmove": 
-						if(typeof props[key] ==="function") props.touchmove(element.touchmove);
+						if(typeof props[key] ==="function") element.touchmove(element.touchmove);
 						break;
 					case "touchstart": 
-						if(typeof props[key] ==="function") props.touchstart(element.touchstart);
+						if(typeof props[key] ==="function") element.touchstart(element.touchstart);
 						break;
 					case "transform":
-						if(typeof props[key] ==="object" || typeof props[key] ==="array") props.transform(element.transform);
+						if(typeof props[key] ==="object" || typeof props[key] ==="array") element.transform(element.transform);
 						break;
 					case "translate":
-						if(typeof props[key] ==="object") props.translate(element.translate);
+						if(typeof props[key] ==="object") element.translate(props.translate.x,props.translate.y);
 						break;
 				}
 			}
@@ -258,10 +258,10 @@ var Utils = {
 						if(typeof props[key] ==="function") {element.unmouseup();element.mouseup(props.mouseup);}
 						break;
 					case "rotate": 
-						if(typeof props[key] ==="object") element.rotate(props.attr);
+						if(typeof props[key] ==="object") { var {deg, cx, cy} = props.rotate; element.rotate(deg, cx, cy); }
 						break;
-					case "scale": 
-						if(typeof props[key] ==="object") element.scale(props.animate);
+					case "scale":
+						if(typeof props[key] ==="object") { var {sx,sy,cx,cy} = props.scale; element.scale(sx,sy,cx,cy); }
 						break;
 					case "touchcancel": 
 						if(typeof props[key] ==="function") {element.untouchcancel();element.touchcancel(props.touchcancel);}
@@ -279,7 +279,7 @@ var Utils = {
 						if(typeof props[key] ==="object" || typeof props[key] ==="array") element.transform(props.transform);
 						break;
 					case "translate":
-						if(typeof props[key] ==="object") element.translate(props.translate);
+						if(typeof props[key] ==="object") element.translate(props.translate.x,props.translate.y);
 						break;
 				}
 			}
