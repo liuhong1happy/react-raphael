@@ -68,7 +68,7 @@ class App extends React.Component{
 	- animate `object` Creates and starts animation for given element.
 	- animateWith `object` Acts similar to Element.animate, but ensure that given animation runs in sync with another given element.
 	- click `function` Adds event handler for click for the element.
-	- data `object` Adds or retrieves given value asociated with given key.
+	- data `object` Adds or retrieves given value asociated with given key. 
 	- dblclick `function` Adds event handler for double click for the element.
 	- drag `function` Adds event handlers for drag of the element.
 	- glow `function` Return set of elements that create glow-like effect around given element.
@@ -129,7 +129,12 @@ class App extends React.Component{
     - x `number` x coordinate position
     - y `number` y coordinate position
     - text `string` The text string to draw
-	
+- Line `Extends Path & Draws a line`
+    - x1 `number` x coordinate of the start point
+    - y1 `number` y coordinate of the start point
+    - x2 `number` x coordinate of the end point
+	- y2 `number` y coordinate of the end point
+    
 #### All Element Ref Function
 
 - Paper

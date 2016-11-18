@@ -131,6 +131,29 @@ Print.defaultProps = { x: 0, y: 0, text: "", fontFamily: "Arial" };
 const Text = (props)=> <Element type="text" {...props} />;
 Text.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string };
 Text.defaultProps = { x: 0, y: 0, text: "" };
+
+class Line extends React.Component{
+	render(){
+		var {x1,x2,y1,y2,animate,attr,...others} = this.props;
+        if(animate){
+            animate.x1 = animate.x1 || x1;
+            animate.x2 = animate.x2 || x2;
+            animate.y1 = animate.y1 || y1;
+            animate.y2 = animate.y2 || y2;
+            animate.path = [ "M",animate.x1,animate.y1, "L",animate.x2,animate.y2 ];
+        }
+        if(attr){
+            attr.x1 = attr.x1 || x1;
+            attr.x2 = attr.x2 || x2;
+            attr.y1 = attr.y1 || y1;
+            attr.y2 = attr.y2 || y2;
+            attr.path = [ "M",attr.x1,attr.y1, "L",attr.x2,attr.y2 ];
+        }
+		return <Path d={[ "M",x1,y1, "L",x2,y2 ]} attr={attr} animate={animate}  {...others} />
+	}
+}
+Line.propTypes = { x1: React.PropTypes.number, y1: React.PropTypes.number, x2: React.PropTypes.number, y2: React.PropTypes.number };
+Line.defaultProps = { x1: 0, y1: 0, x2: 0,y2: 0 };
         
 module.exports = {
     Paper: Paper,
@@ -142,5 +165,6 @@ module.exports = {
 	Path: Path,
     Print: Print,
 	Rect: Rect,
-	Text: Text
+	Text: Text,
+    Line: Line
 }
