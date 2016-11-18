@@ -54,7 +54,7 @@ class App extends React.Component{
 
 ## Snapshot
 
-![snapshot.png](snapshot.png)
+![snapshot.png](images/snapshot.svg)
 
 ## API
 
