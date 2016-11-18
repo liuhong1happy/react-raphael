@@ -92,6 +92,13 @@ var Utils = {
 					case "click": 
 						if(typeof props[key] ==="function") element.click(props.click);
 						break;
+					case "data":
+						if(typeof props[key] ==="object") {
+							for(var key in props.data) 
+								element.data(key,props.data[key]);
+							element._data = data;
+						}
+						break;
 					case "dblclick": 
 						if(typeof props[key] ==="function") element.dblclick(props.dblclick);
 						break;
