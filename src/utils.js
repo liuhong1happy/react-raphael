@@ -96,7 +96,7 @@ var Utils = {
 						if(typeof props[key] ==="object") {
 							for(var key in props.data) 
 								element.data(key,props.data[key]);
-							element._data = data;
+							element.items = props.data;
 						}
 						break;
 					case "dblclick": 
@@ -233,6 +233,13 @@ var Utils = {
 						break;
 					case "click": 
 						if(typeof props[key] ==="function") {element.unclick();element.click(props.click);}
+						break;
+					case "data":
+						if(typeof props[key] ==="object") {
+							for(var key in props.data) 
+								element.data(key,props.data[key]);
+							element.items = props.data;
+						}
 						break;
 					case "dblclick": 
 						if(typeof props[key] ==="function") {element.undblclick();element.dblclick(props.dblclick);}
