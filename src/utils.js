@@ -71,11 +71,13 @@ var Utils = {
                 var {x, y, text} = props;
                 element = findedParent.paper.text(x, y, text);
                 break;
-
         }
        
 		if(element){
-            if(findedParent.parent.type=="set") findedParent.parent.push(element);
+            if(findedParent.parent.type=="set"){
+				element.set = findedParent.parent;
+				findedParent.parent.push(element);
+			}
 			for(var key in props){
 				switch(key){
 					case "attr": 

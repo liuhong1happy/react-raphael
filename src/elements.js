@@ -59,9 +59,6 @@ class Set extends React.Component{
             id: set.id
         })
     }
-    componentDidUpdate(){
-        console.log(this.props.children);
-    }
     componentWillUnmout(){
         Utils.removeSet(this.set);
     }
