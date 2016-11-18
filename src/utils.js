@@ -129,10 +129,10 @@ var Utils = {
 						if(typeof props[key] ==="scale") element.scale(props.animate);
 						break;
 					case "toBack":
-						if(typeof props[key] ==="function") element.toBack();
+						if(typeof props[key] ==="boolean") if(props.toBack) element.toBack();
 						break;
 					case "toFront":
-						if(typeof props[key] ==="function") element.toFront();
+						if(typeof props[key] ==="boolean") if(props.toFront)  element.toFront();
 						break;
 					case "touchcancel": 
 						if(typeof props[key] ==="function") element.touchcancel(props.touchcancel);
