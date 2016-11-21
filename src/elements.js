@@ -120,7 +120,7 @@ Image.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, src: R
 Image.defaultProps = { x: 0, y: 0, src: "", width: 0,height: 0 };
         
 const Path = (props)=> <Element type="path" {...props} />;
-Path.propTypes = { d: React.PropTypes.string };
+Path.propTypes = { d: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.array]) };
 Path.defaultProps = { d: "M0,0L0,0Z" };
         
 const Rect = (props)=> <Element type="rect" {...props} />;
