@@ -166,7 +166,7 @@ var Utils = {
 				}
 			}
 			// fix raphael #491
-			if(Raphael.svg && element.node.nodeName=="text" && element.node.childNodes.length>0){
+			if(Raphael.svg && element.node && element.node.nodeName=="text" && element.node.childNodes.length>0){
 				var nodeY = element.node.getAttribute("y");
 				var childDy = element.node.childNodes[0].getAttribute("dy");
 				if(nodeY == childDy){
@@ -311,7 +311,7 @@ var Utils = {
 				}
 			}
 			// fix raphael #491
-			if(Raphael.svg && element.node.nodeName=="text" && element.node.childNodes.length>0){
+			if(Raphael.svg && element.node && element.node.nodeName=="text" && element.node.childNodes.length>0){
 				var nodeY = element.node.getAttribute("y");
 				var childDy = element.node.childNodes[0].getAttribute("dy");
 				if(nodeY == childDy){
