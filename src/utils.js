@@ -56,7 +56,7 @@ var Utils = {
                 break;
             case "path":
                 var {d} = props;
-				if(!d && d.length==0) d="M0,0L0,0Z";
+				if(!d || d.length==0) d="M0,0L0,0Z";
                 element = findedParent.paper.path(d);
                 break;
             case "print":
@@ -215,7 +215,7 @@ var Utils = {
                 break;
             case "path":
                 var {d} = props;
-				if(!d && d.length==0) d="M0,0L0,0Z";
+				if(!d || d.length==0) d="M0,0L0,0Z";
                 element.attr({path:d});
                 break;
             case "print":
