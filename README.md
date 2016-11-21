@@ -61,8 +61,9 @@ class App extends React.Component{
 #### All Element Props
 
 - Paper 
-    - width `number` width of the canvas
-    - height  `number` height of the canvas
+    - width `number` width of the canvas.
+    - height  `number` height of the canvas.
+	- container `object`  props of the canvas's container.`default value: { style:{}, className:"" }`
 - Element
 	- attr `object` Sets the attributes of the element.
 	- animate `object` Creates and starts animation for given element.

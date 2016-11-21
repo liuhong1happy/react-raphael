@@ -70,6 +70,13 @@ var Utils = {
             case "text":
                 var {x, y, text} = props;
                 element = findedParent.paper.text(x, y, text);
+				setTimeout(function(){
+					element.attr({
+						x: x,
+						y: y,
+						text: text
+					})
+				})
                 break;
         }
        
@@ -81,7 +88,10 @@ var Utils = {
 			for(var key in props){
 				switch(key){
 					case "attr": 
-						if(typeof props[key] ==="object") element.attr(props.attr);
+						if(typeof props[key] ==="object") {
+							if(type=="text") setTimeout(function(){ element.attr(props.attr);  });
+							else element.attr(props.attr);
+						}
 						break;
 					case "animate": 
 						if(typeof props[key] ==="object") element.animate(props.animate);
