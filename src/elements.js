@@ -84,15 +84,14 @@ class Set extends React.Component{
 
 class Element extends React.Component{
     componentDidMount(){
-        this.handleLoad = this.handleLoad.bind(this);
         var root = ReactDOM.findDOMNode(this.refs.root);
         var parentId = root.parentElement.getAttribute("data-id");
-        var element = Utils.createElement(parentId,this.props.type,this.props,this.handleLoad);
+        var element = Utils.createElement(parentId,this.props.type,this.props,this.handleLoad.bind(this));
         this.element = element;
         
     }
     componentDidUpdate(){
-        Utils.updateElement(this.element,this.props.type,this.props,this.handleUpdate);
+        Utils.updateElement(this.element,this.props.type,this.props,this.handleUpdate.bind(this));
     }
     componentWillUnmount(){
         Utils.removeElement(this.element);
