@@ -88,7 +88,6 @@ class Element extends React.Component{
         var parentId = root.parentElement.getAttribute("data-id");
         var element = Utils.createElement(parentId,this.props.type,this.props,this.handleLoad.bind(this));
         this.element = element;
-        
     }
     componentDidUpdate(){
         Utils.updateElement(this.element,this.props.type,this.props,this.handleUpdate.bind(this));

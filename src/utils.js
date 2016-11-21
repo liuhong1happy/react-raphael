@@ -71,13 +71,6 @@ var Utils = {
             case "text":
                 var {x, y, text} = props;
                 element = findedParent.paper.text(x, y, text);
-				setTimeout(function(){
-					element.attr({
-						x: x,
-						y: y,
-						text: text
-					})
-				})
                 break;
         }
        
@@ -170,6 +163,14 @@ var Utils = {
 					case "translate":
 						if(typeof props[key] ==="object") element.translate(props.translate.x,props.translate.y);
 						break;
+				}
+			}
+			// fix raphael #491
+			if(Raphael.svg && element.node.nodeName=="text" && element.node.childNodes.length>0){
+				var nodeY = element.node.getAttribute("y");
+				var childDy = element.node.childNodes[0].getAttribute("dy");
+				if(nodeY == childDy){
+					element.node.childNodes[0].setAttribute("dy",0);
 				}
 			}
 		}
@@ -307,6 +308,14 @@ var Utils = {
 					case "translate":
 						if(typeof props[key] ==="object") element.translate(props.translate.x,props.translate.y);
 						break;
+				}
+			}
+			// fix raphael #491
+			if(Raphael.svg && element.node.nodeName=="text" && element.node.childNodes.length>0){
+				var nodeY = element.node.getAttribute("y");
+				var childDy = element.node.childNodes[0].getAttribute("dy");
+				if(nodeY == childDy){
+					element.node.childNodes[0].setAttribute("dy",0);
 				}
 			}
 		}
