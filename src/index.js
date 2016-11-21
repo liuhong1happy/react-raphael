@@ -8,7 +8,8 @@ const {
 	Path,
     Print,
 	Rect,
-	Text
+	Text,
+    Line
 } = require('./elements');
 
 exports.Raphael = Raphael;
@@ -23,3 +24,4 @@ exports.Path = Path;
 exports.Print = Print;
 exports.Rect = Rect;
 exports.Text = Text;
+exports.Line = Line;
