@@ -199,7 +199,7 @@ var Utils = {
         var {width,height} = props;
         paper.setSize({width,height});
     },
-    updateElement:function(element,type,props){
+    updateElement:function(element,type,props,callback){
         switch(type){
             case "circle":
                 var {x,y,r} = props;
@@ -310,6 +310,7 @@ var Utils = {
 				}
 			}
 		}
+		if(callback) callback(element);
         return element;
     },
     removePaper: function(paper){

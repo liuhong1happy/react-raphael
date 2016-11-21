@@ -92,7 +92,7 @@ class Element extends React.Component{
         
     }
     componentDidUpdate(){
-        Utils.updateElement(this.element,this.props.type,this.props);
+        Utils.updateElement(this.element,this.props.type,this.props,this.handleUpdate);
     }
     componentWillUnmount(){
         Utils.removeElement(this.element);
@@ -102,6 +102,11 @@ class Element extends React.Component{
             this.props.load(element);
         }
     }
+	handleUpdate(element){
+        if(this.props.update){
+            this.props.update(element);
+        }
+	}
     render(){
         return (<div ref="root" className={"raphael-"+this.props.type}></div>)
     }               

@@ -93,6 +93,7 @@ class App extends React.Component{
 	- touchstart `function` Adds event handler for touchstart for the element.
 	- transform `string` or `array` Adds transformation to the element which is separate to other attributes, i.e. translation doesn’t change x or y of the rectange. The format of transformation string is similar to the path string syntax:`"t100,100r30,100,100s2,2,100,100r45s1.5"`
 	- translate `object` Adds translation by given amount to the list of transformations of the element.
+	- update `function` Adds event handler for update for the element.
 - Set `Extends Element & Container Elements`
 - Circle  `Extends Element & Draws a circle`
     - x `number` x coordinate of the centre
