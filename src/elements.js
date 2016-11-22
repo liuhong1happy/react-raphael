@@ -22,9 +22,8 @@ class Paper extends React.Component {
          this.paper.remove();
     }
     genElementsContainer(){
-		var {style,className,...others} = this.props.container;
         if(this.state.loading){
-            return (<div className={"raphael-paper "+className} data-id={this.state.id} style={style} {...others}>
+            return (<div className="raphael-paper" data-id={this.state.id}>
                         {this.props.children}
                     </div>)
         }else{
@@ -36,9 +35,10 @@ class Paper extends React.Component {
 	}
     render(){
         var eleContainer = this.genElementsContainer();
+		var {style,className,...others} = this.props.container;
         return (<div className="react-raphael">
                     {eleContainer}
-                    <div ref="container" className="paper-container"></div>
+                    <div ref="container" className={"paper-container "+className} style={style} {...others}></div>
                 </div>)
     }
 }
