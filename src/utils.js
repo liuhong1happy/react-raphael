@@ -111,6 +111,7 @@ var Utils = {
 		if(element){
 			// fix matrix bug
 			element.matrix = Raphael.matrix();
+			element.attr("transform","");
 			
 			for(var key in props){
 				switch(key){
