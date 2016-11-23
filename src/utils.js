@@ -335,19 +335,14 @@ var Utils = {
         }
     },
     removeSet:function(set){
-        var elements = Utils.elements.filter(function(ele){
-            return ele === set;
-        })
-        if(elements.length>0){
-            elements[0].remove();
-        }
+        Utils.removeElement(set);
     },
     removeElement:function(element){
         var elements = Utils.elements.filter(function(ele){
-            return ele === element;
+            return ele.element === element;
         })
         if(elements.length>0){
-            elements[0].remove();
+            elements[0].element.remove();
         }
     },
     papers: [],
