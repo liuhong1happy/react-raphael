@@ -137,8 +137,8 @@ Path.propTypes = { d: React.PropTypes.oneOfType([React.PropTypes.string, React.P
 Path.defaultProps = { d: "M0,0L0,0Z" };
         
 const Rect = (props)=> <Element type="rect" {...props} />;
-Rect.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, width: React.PropTypes.number, height: React.PropTypes.number };
-Rect.defaultProps = { x: 0, y: 0, width: 0,height: 0 };
+Rect.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, width: React.PropTypes.number, height: React.PropTypes.number, r: React.PropTypes.number };
+Rect.defaultProps = { x: 0, y: 0, width: 0,height: 0, r: 0 };
         
 const Print = (props)=> <Element type="print" {...props} />;
 Print.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string, fontFamily: React.PropTypes.string };
