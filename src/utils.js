@@ -138,13 +138,19 @@ var Utils = {
 						if(typeof props[key] ==="function") {element.undblclick();element.dblclick(props.dblclick);}
 						break;
 					case "drag": 
-						if(typeof props[key] ==="function") {element.undrag();element.drag({...props.drag});}
+						if(typeof props[key] ==="object") {
+							element.undrag();
+							element.drag(props.drag.move, props.drag.start, props.drag.end, props.drag.mcontext, props.drag.scontext, props.drag.econtext );
+						}
 						break;
 					case "glow": 
 						if(typeof props[key] ==="object") element.glow(props.glow);
 						break;
 					case "hover": 
-						if(typeof props[key] ==="function") {element.unhover();element.hover({...props.hover});}
+						if(typeof props[key] ==="object") {
+							element.unhover();
+							element.hover(props.hover.in, props.hover.out, props.hover.icontext, props.hover.ocontext);
+					    }
 						break;
 					case "hide": 
 						if(typeof props[key] ==="boolean") props.hide?element.hide():element.show();
