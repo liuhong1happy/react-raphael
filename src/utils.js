@@ -199,11 +199,13 @@ var Utils = {
 			// fix raphael #491
 			if(Raphael.svg && element.node && element.node.nodeName=="text" && element.node.childNodes.length>0){
 				setTimeout(function(){
-					var nodeY = element.node.getAttribute("y");
-					var childDy = element.node.childNodes[0].getAttribute("dy");
-					if(nodeY == childDy){
-						element.node.childNodes[0].setAttribute("dy",0);
-					}
+                    if(element.node){
+                        var nodeY = element.node.getAttribute("y");
+                        var childDy = element.node.childNodes[0].getAttribute("dy");
+                        if(nodeY == childDy){
+                            element.node.childNodes[0].setAttribute("dy",0);
+                        }
+                    }
 				})
 			}
 		}
