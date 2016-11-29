@@ -104,6 +104,9 @@ class Element extends React.Component{
     componentWillUnmount(){
         Utils.removeElement(this.element);
     }
+	getElement(){
+		return this.element;
+	}
     handleLoad(element){
         if(this.props.load){
             this.props.load(element);
@@ -115,40 +118,63 @@ class Element extends React.Component{
         }
 	}
     render(){
-        if(this.state.loaded) return null;
-        else return (<div ref="root" className={"raphael-"+this.props.type}></div>)
+		if(this.state.loaded) return null;
+        return (<div ref="root" className={"raphael-"+this.props.type}></div>)
     }               
 } 
 
-const Circle = (props)=> <Element type="circle" {...props} />;
+class Circle extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="circle" {...this.props} />) }
+}
 Circle.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, r: React.PropTypes.number };
 Circle.defaultProps = { x: 0, y: 0,r: 10 };
-        
-const Ellipse = (props)=> <Element type="ellipse" {...props} />;
+
+class Ellipse extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="ellipse" {...this.props} />) }
+}
+
 Ellipse.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, rx: React.PropTypes.number, ry: React.PropTypes.number };
 Ellipse.defaultProps = { x: 0, y: 0,rx: 10,ry: 20 };
-        
-const Image = (props)=> <Element type="image" {...props} />;
+
+class Image extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="image" {...this.props} />) }
+}
 Image.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, src: React.PropTypes.string, width: React.PropTypes.number, height: React.PropTypes.number };
 Image.defaultProps = { x: 0, y: 0, src: "", width: 0,height: 0 };
         
-const Path = (props)=> <Element type="path" {...props} />;
+class Path extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="path" {...this.props} />) }
+}
 Path.propTypes = { d: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.array]) };
 Path.defaultProps = { d: "M0,0L0,0Z" };
         
-const Rect = (props)=> <Element type="rect" {...props} />;
+class Rect extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="rect" {...this.props} />) }
+}
 Rect.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, width: React.PropTypes.number, height: React.PropTypes.number, r: React.PropTypes.number };
 Rect.defaultProps = { x: 0, y: 0, width: 0,height: 0, r: 0 };
         
-const Print = (props)=> <Element type="print" {...props} />;
+class Print extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="print" {...this.props} />) }
+}
 Print.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string, fontFamily: React.PropTypes.string };
 Print.defaultProps = { x: 0, y: 0, text: "", fontFamily: "Arial" };
         
-const Text = (props)=> <Element type="text" {...props} />;
+class Text extends React.Component{
+	getElement() { return this.refs.element.getElement()  }
+	render(){ return (<Element ref="element" type="text" {...this.props} />) }
+}
 Text.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string };
 Text.defaultProps = { x: 0, y: 0, text: "" };
 
 class Line extends React.Component{
+	getElement() { return this.refs.path.getElement()  }
 	render(){
 		var {x1,x2,y1,y2,animate,attr,...others} = this.props;
         if(animate){
@@ -175,7 +201,7 @@ class Line extends React.Component{
             attr.y2 = attr.y2 || y2;
             attr.path = [ "M",attr.x1,attr.y1, "L",attr.x2,attr.y2 ];
         }
-		return <Path d={[ "M",x1,y1, "L",x2,y2 ]} attr={attr} animate={animate}  {...others} />
+		return <Path ref="path" d={[ "M",x1,y1, "L",x2,y2 ]} attr={attr} animate={animate}  {...others} />
 	}
 }
 Line.propTypes = { x1: React.PropTypes.number, y1: React.PropTypes.number, x2: React.PropTypes.number, y2: React.PropTypes.number };

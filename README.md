@@ -75,9 +75,9 @@ class App extends React.Component{
 	- click `function` Adds event handler for click for the element.
 	- data `object` Adds or retrieves given value asociated with given key. 
 	- dblclick `function` Adds event handler for double click for the element.
-	- drag `function` Adds event handlers for drag of the element.
+	- drag `object` Adds event handlers for drag of the element. `object {move,start,end,mcontext,scontext,econtext}`
 	- glow `function` Return set of elements that create glow-like effect around given element.
-	- hover `function` Adds event handlers for hover for the element.
+	- hover `object` Adds event handlers for hover for the element. `object {in,out,icontext,ocontext}`
 	- hide `boolean` Makes element invisible. 
 	- mousedown `function` Adds event handler for mousedown for the element.
 	- mousemove `function` Adds event handler for mousemove for the element.
