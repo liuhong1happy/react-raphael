@@ -14,6 +14,8 @@ reactify raphael
 - [react-raphael-example](https://github.com/liuhong1happy/react-raphael-example)
 - [react-raphael-map](https://github.com/liuhong1happy/react-raphael-map)
 - [react-raphael-chart](https://github.com/liuhong1happy/react-raphael-chart)
+- [react-raphael-workflow](https://github.com/liuhong1happy/react-raphael-workflow)
+- [react-raphael-scrawl](https://github.com/liuhong1happy/react-raphael-scrawl)
 
 ## Quickly Start
 
