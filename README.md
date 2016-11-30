@@ -16,6 +16,7 @@ reactify raphael
 - [react-raphael-chart](https://github.com/liuhong1happy/react-raphael-chart)
 - [react-raphael-workflow](https://github.com/liuhong1happy/react-raphael-workflow)
 - [react-raphael-scrawl](https://github.com/liuhong1happy/react-raphael-scrawl)
+- [react-raphael-mine-sweeping](https://github.com/liuhong1happy/react-raphael-mine-sweeping)
 
 ## Quickly Start
 
