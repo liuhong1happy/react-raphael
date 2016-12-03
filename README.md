@@ -7,6 +7,9 @@ reactify raphael
 
 ## Install
 
+    # or specify the externals in webpack config
+    npm install --save raphael
+    # install react-raphael in your react-raphael project
 	npm install --save react-raphael
 
 ## Example
