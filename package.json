@@ -3,9 +3,9 @@
   "version": "0.8.0",
   "description": "reactify raphael",
   "main": "./lib",
-  "files":{
+  "files":[
 	  "lib"
-  },
+  ],
   "scripts": {
     "test": "test",
     "clean": "rm -rf ./lib",
