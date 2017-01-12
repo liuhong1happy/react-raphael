@@ -1,19 +1,21 @@
-const Raphael = require('raphael');
+const Raphael = require("raphael");
+const Utils = require("./utils");
+
 const {
 	Paper,
-    Set,
-    Circle,
+  Set,
+  Circle,
 	Ellipse,
 	Image,
 	Path,
-    Print,
+  Print,
 	Rect,
 	Text,
-    Line
-} = require('./elements');
+  Line
+} = require("./elements");
 
 exports.Raphael = Raphael;
-exports.Utils = require('./utils');
+exports.Utils = Utils;
 exports.Paper = Paper;
 exports.Set = Set;
 exports.Element = Element;
