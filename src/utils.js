@@ -4,7 +4,10 @@ const Utils = {
     createPaper:function(container,props){
         const { width,height } = props;
         const paper = Raphael(container,width,height);
-        if(props.viewbox) paper.setViewBox(props.viewbox);
+        if(props.viewbox) {
+            const v = props.viewbox.split(" ");
+            paper.setViewBox(v[0] || 0, v[1] || 0, v[2] || 0, v[3] || 3, true);
+        }
         paper.id = container.id || ("paper-" + new Date().valueOf() +"-"+ Math.random().toFixed(10));
         Utils.papers.push(paper);
         return paper;
