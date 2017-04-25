@@ -4,6 +4,7 @@ const Utils = {
     createPaper:function(container,props){
         const { width,height } = props;
         const paper = Raphael(container,width,height);
+        if(props.viewbox) paper.setViewBox(props.viewbox);
         paper.id = container.id || ("paper-" + new Date().valueOf() +"-"+ Math.random().toFixed(10));
         Utils.papers.push(paper);
         return paper;

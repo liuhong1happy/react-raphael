@@ -46,9 +46,12 @@ class Paper extends React.Component {
 Paper.propTypes = {
     x: React.PropTypes.number,
     y: React.PropTypes.number,
+    width: React.PropTypes.number,
+    height: React.PropTypes.number,
+    viewbox: React.PropTypes.string,
     container: React.PropTypes.object
 };
-Paper.defaultProps = { x:0, y: 0,width: 100, height: 100, container:{ style:{}, className:"" } };
+Paper.defaultProps = { x:0, y: 0,width: 100, height: 100, container:{ style:{}, className:"" }, viewbox: "" };
 				
 class Set extends React.Component{
     constructor(props){
