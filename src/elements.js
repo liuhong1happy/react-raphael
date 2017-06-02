@@ -18,6 +18,9 @@ class Paper extends React.Component {
             id: paper.id
         });
     }
+    componentDidUpdate() {
+        Utils.updatePaper(this.paper, this.props);
+    }
     componentWillUnmount(){
         this.paper.remove();
     }
