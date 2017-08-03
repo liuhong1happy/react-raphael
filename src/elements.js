@@ -2,6 +2,8 @@ const React = require("react");
 const ReactDOM = require("react-dom");
 const Utils = require("./utils");
 
+const PropTypes = require("prop-types");
+
 class Paper extends React.Component {
     constructor(props){
         super(props);
@@ -26,7 +28,7 @@ class Paper extends React.Component {
     }
 
     getPaper(){
-        return this.paper;			
+        return this.paper;
     }
     genElementsContainer(){
         if(this.state.loaded){
@@ -47,15 +49,15 @@ class Paper extends React.Component {
     }
 }
 Paper.propTypes = {
-    x: React.PropTypes.number,
-    y: React.PropTypes.number,
-    width: React.PropTypes.number,
-    height: React.PropTypes.number,
-    viewbox: React.PropTypes.string,
-    container: React.PropTypes.object
+    x: PropTypes.number,
+    y: PropTypes.number,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    viewbox: PropTypes.string,
+    container: PropTypes.object
 };
 Paper.defaultProps = { x:0, y: 0,width: 100, height: 100, container:{ style:{}, className:"" }, viewbox: "" };
-				
+
 class Set extends React.Component{
     constructor(props){
         super(props);
@@ -74,7 +76,7 @@ class Set extends React.Component{
         });
     }
     getSet(){
-        return this.set;			
+        return this.set;
     }
     handleLoad(set){
         if(this.props.load){
@@ -99,7 +101,7 @@ class Element extends React.Component{
         this.state = {
             loaded: false
         };
-    } 
+    }
     componentDidMount(){
         const root = ReactDOM.findDOMNode(this.refs.root);
         const parentId = root.parentElement.getAttribute("data-id");
@@ -131,17 +133,17 @@ class Element extends React.Component{
     render(){
         if(this.state.loaded) return null;
         return (<div ref="root" className={"raphael-"+this.props.type} />);
-    }               
-} 
+    }
+}
 
 class Circle extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="circle" {...this.props} />); }
 }
-Circle.propTypes = { 
-    x: React.PropTypes.number,
-    y: React.PropTypes.number,
-    r: React.PropTypes.number 
+Circle.propTypes = {
+    x: PropTypes.number,
+    y: PropTypes.number,
+    r: PropTypes.number
 };
 Circle.defaultProps = { x: 0, y: 0,r: 10 };
 
@@ -150,42 +152,42 @@ class Ellipse extends React.Component{
     render(){ return (<Element ref="element" type="ellipse" {...this.props} />); }
 }
 
-Ellipse.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, rx: React.PropTypes.number, ry: React.PropTypes.number };
+Ellipse.propTypes = { x: PropTypes.number, y: PropTypes.number, rx: PropTypes.number, ry: PropTypes.number };
 Ellipse.defaultProps = { x: 0, y: 0,rx: 10,ry: 20 };
 
 class Image extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="image" {...this.props} />); }
 }
-Image.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, src: React.PropTypes.string, width: React.PropTypes.number, height: React.PropTypes.number };
+Image.propTypes = { x: PropTypes.number, y: PropTypes.number, src: PropTypes.string, width: PropTypes.number, height: PropTypes.number };
 Image.defaultProps = { x: 0, y: 0, src: "", width: 0,height: 0 };
-        
+
 class Path extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="path" {...this.props} />); }
 }
-Path.propTypes = { d: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.array]) };
+Path.propTypes = { d: PropTypes.oneOfType([PropTypes.string, PropTypes.array]) };
 Path.defaultProps = { d: "M0,0L0,0Z" };
-        
+
 class Rect extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="rect" {...this.props} />); }
 }
-Rect.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, width: React.PropTypes.number, height: React.PropTypes.number, r: React.PropTypes.number };
+Rect.propTypes = { x: PropTypes.number, y: PropTypes.number, width: PropTypes.number, height: PropTypes.number, r: PropTypes.number };
 Rect.defaultProps = { x: 0, y: 0, width: 0,height: 0, r: 0 };
-        
+
 class Print extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="print" {...this.props} />); }
 }
-Print.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string, fontFamily: React.PropTypes.string };
+Print.propTypes = { x: PropTypes.number, y: PropTypes.number, text: PropTypes.string, fontFamily: PropTypes.string };
 Print.defaultProps = { x: 0, y: 0, text: "", fontFamily: "Arial" };
-        
+
 class Text extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="text" {...this.props} />); }
 }
-Text.propTypes = { x: React.PropTypes.number, y: React.PropTypes.number, text: React.PropTypes.string };
+Text.propTypes = { x: PropTypes.number, y: PropTypes.number, text: PropTypes.string };
 Text.defaultProps = { x: 0, y: 0, text: "" };
 
 class Line extends React.Component{
@@ -194,7 +196,7 @@ class Line extends React.Component{
         const {x1,x2,y1,y2,animate,attr,...others} = this.props;
         if(animate){
             if(animate.anim){
-                for(const key in animate.anim) { 
+                for(const key in animate.anim) {
                     animate.anim[key].x1 = animate.anim[key].x1 || x1;
                     animate.anim[key].x2 = animate.anim[key].x2 || x2;
                     animate.anim[key].y1 = animate.anim[key].y1 || y1;
@@ -219,9 +221,9 @@ class Line extends React.Component{
         return <Path ref="path" d={[ "M",x1,y1, "L",x2,y2 ]} attr={attr} animate={animate}  {...others} />;
     }
 }
-Line.propTypes = { x1: React.PropTypes.number, y1: React.PropTypes.number, x2: React.PropTypes.number, y2: React.PropTypes.number };
+Line.propTypes = { x1: PropTypes.number, y1: PropTypes.number, x2: PropTypes.number, y2: PropTypes.number };
 Line.defaultProps = { x1: 0, y1: 0, x2: 0,y2: 0 };
-        
+
 module.exports = {
     Paper: Paper,
     Set: Set,
