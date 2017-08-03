@@ -11,7 +11,8 @@ const {
   Print,
 	Rect,
 	Text,
-  Line
+  	Line,
+	Element
 } = require("./elements");
 
 exports.Raphael = Raphael;
