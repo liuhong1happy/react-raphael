@@ -87,7 +87,7 @@ const Utils = {
         }
         default: break;
         }
-       
+
         if(element){
             if(findedParent.parent.type=="set"){
                 element.set = findedParent.parent;
@@ -146,7 +146,7 @@ const Utils = {
                 }
                 case "data": {
                     if(typeof props[key] ==="object") {
-                        for(const key in props.data) 
+                        for(const key in props.data)
                             element.data(key,props.data[key]);
                         element.items = props.data;
                     }
@@ -194,11 +194,11 @@ const Utils = {
                     if(typeof props[key] ==="function") {element.unmouseover();element.mouseover(props.mouseover);}
                     break;
                 }
-                case "mouseup":{ 
+                case "mouseup":{
                     if(typeof props[key] ==="function") {element.unmouseup();element.mouseup(props.mouseup);}
                     break;
                 }
-                case "rotate":{ 
+                case "rotate":{
                     if(typeof props[key] ==="object") { const {deg, cx, cy} = props.rotate; element.rotate(deg, cx, cy); }
                     break;
                 }
@@ -206,19 +206,23 @@ const Utils = {
                     if(typeof props[key] ==="object") { const {sx,sy,cx,cy} = props.scale; element.scale(sx,sy,cx,cy); }
                     break;
                 }
-                case "touchcancel":{ 
+                case "stop":{
+                    if(typeof props[key] ==="boolean" && props.stop) { element.stop(); }
+                    break;
+                }
+                case "touchcancel":{
                     if(typeof props[key] ==="function") {element.untouchcancel();element.touchcancel(props.touchcancel);}
                     break;
                 }
-                case "touchend":{ 
+                case "touchend":{
                     if(typeof props[key] ==="function") {element.untouchend();element.touchend(props.touchend);}
                     break;
                 }
-                case "touchmove":{ 
+                case "touchmove":{
                     if(typeof props[key] ==="function") {element.untouchmove();element.touchmove(props.touchmove);}
                     break;
                 }
-                case "touchstart":{ 
+                case "touchstart":{
                     if(typeof props[key] ==="function") {element.untouchstart();element.touchstart(props.touchstart);}
                     break;
                 }
@@ -284,7 +288,7 @@ const Utils = {
             element.attr({x, y, text});
             break;
         }
-        
+
         }
         Utils.updateElementProps(element,props);
         if(callback) callback(element);
