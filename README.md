@@ -91,6 +91,7 @@ class App extends React.Component{
     - load `function` Adds event handler for load for the element.
 	- rotate `object` Adds rotation by given angle around given point to the list of transformations of the element.
 	- scale `object` Adds scale by given amount relative to given point to the list of transformations of the element.
+    - stop `boolen` Stops animation for given element.
 	- toBack `boolean` Moves the element so it is the furthest from the viewer’s eyes, behind other elements.
 	- toFront `boolean` Moves the element so it is the closest to the viewer’s eyes, on top of other elements.
 	- touchcancel `function` Adds event handler for touchcancel for the element.
