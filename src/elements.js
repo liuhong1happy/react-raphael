@@ -136,6 +136,21 @@ class Element extends React.Component{
     }
 }
 
+Element.propTypes = {
+    animate: PropTypes.oneOfType([
+        PropTypes.shape({
+            anim: PropTypes.shape({
+                transform: PropTypes.string
+            }),
+            ms: PropTypes.number,
+            percents: PropTypes.array,
+            times: PropTypes.number
+        }),
+        PropTypes.string
+    ]),
+    stop: PropTypes.bool
+};
+
 class Circle extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="circle" {...this.props} />); }
@@ -143,7 +158,7 @@ class Circle extends React.Component{
 Circle.propTypes = {
     x: PropTypes.number,
     y: PropTypes.number,
-    r: PropTypes.number
+    r: PropTypes.number, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool
 };
 Circle.defaultProps = { x: 0, y: 0,r: 10 };
 
@@ -152,42 +167,42 @@ class Ellipse extends React.Component{
     render(){ return (<Element ref="element" type="ellipse" {...this.props} />); }
 }
 
-Ellipse.propTypes = { x: PropTypes.number, y: PropTypes.number, rx: PropTypes.number, ry: PropTypes.number };
+Ellipse.propTypes = { x: PropTypes.number, y: PropTypes.number, rx: PropTypes.number, ry: PropTypes.number, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Ellipse.defaultProps = { x: 0, y: 0,rx: 10,ry: 20 };
 
 class Image extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="image" {...this.props} />); }
 }
-Image.propTypes = { x: PropTypes.number, y: PropTypes.number, src: PropTypes.string, width: PropTypes.number, height: PropTypes.number };
+Image.propTypes = { x: PropTypes.number, y: PropTypes.number, src: PropTypes.string, width: PropTypes.number, height: PropTypes.number, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Image.defaultProps = { x: 0, y: 0, src: "", width: 0,height: 0 };
 
 class Path extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="path" {...this.props} />); }
 }
-Path.propTypes = { d: PropTypes.oneOfType([PropTypes.string, PropTypes.array]) };
+Path.propTypes = { d: PropTypes.oneOfType([PropTypes.string, PropTypes.array]), animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Path.defaultProps = { d: "M0,0L0,0Z" };
 
 class Rect extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="rect" {...this.props} />); }
 }
-Rect.propTypes = { x: PropTypes.number, y: PropTypes.number, width: PropTypes.number, height: PropTypes.number, r: PropTypes.number };
+Rect.propTypes = { x: PropTypes.number, y: PropTypes.number, width: PropTypes.number, height: PropTypes.number, r: PropTypes.number, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Rect.defaultProps = { x: 0, y: 0, width: 0,height: 0, r: 0 };
 
 class Print extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="print" {...this.props} />); }
 }
-Print.propTypes = { x: PropTypes.number, y: PropTypes.number, text: PropTypes.string, fontFamily: PropTypes.string };
+Print.propTypes = { x: PropTypes.number, y: PropTypes.number, text: PropTypes.string, fontFamily: PropTypes.string, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Print.defaultProps = { x: 0, y: 0, text: "", fontFamily: "Arial" };
 
 class Text extends React.Component{
     getElement() { return this.refs.element.getElement();  }
     render(){ return (<Element ref="element" type="text" {...this.props} />); }
 }
-Text.propTypes = { x: PropTypes.number, y: PropTypes.number, text: PropTypes.string };
+Text.propTypes = { x: PropTypes.number, y: PropTypes.number, text: PropTypes.string, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Text.defaultProps = { x: 0, y: 0, text: "" };
 
 class Line extends React.Component{
@@ -221,7 +236,7 @@ class Line extends React.Component{
         return <Path ref="path" d={[ "M",x1,y1, "L",x2,y2 ]} attr={attr} animate={animate}  {...others} />;
     }
 }
-Line.propTypes = { x1: PropTypes.number, y1: PropTypes.number, x2: PropTypes.number, y2: PropTypes.number };
+Line.propTypes = { x1: PropTypes.number, y1: PropTypes.number, x2: PropTypes.number, y2: PropTypes.number, animate: PropTypes.oneOfType([PropTypes.shape({anim: PropTypes.shape({transform: PropTypes.string}),ms: PropTypes.number,percents: PropTypes.array,times: PropTypes.number}),PropTypes.string]),stop: PropTypes.bool };
 Line.defaultProps = { x1: 0, y1: 0, x2: 0,y2: 0 };
 
 module.exports = {
